@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <title>Home Page</title>
+  <style>
+    body{
+        background-image:url("/static/artscape.jpg")
+    }
+    .jumbotron{
+      background-color:transparent !important;
+    }
+    /* Format Enter Gallery Button */
+    .enter_button {
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      background-color: #DCDCDC;
+      color: black;
+      border: 2px solid #DCDCDC;
+      border-radius: 12px;
+    }
+
+    .enter_button:hover {
+      transition-duration: 0.4s;
+      cursor: pointer;
+      background-color: #C0C0C0;
+      border: 2px solid #C0C0C0;
+      color: black;
+    }
+
+  .position_enter_button {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .position_user_button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  /* Format Artscape Header */
+  .position_text {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  /* Format Info Button */
+  .info_button {
+    color:#DCDCDC;
+    font-size:48px;
+    border-radius: 12px;
+  }
+
+  .info_button:hover {
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color:#C0C0C0;
+    font-size:48px;
+  }
+
+  .position_info_button {
+    position: absolute;
+    top:5%;
+    right:5%;
+  }
+  /* Format Modal */
+  .modal_border{
+    border: none;
+  }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center position_text">
+            <!-- Text Welcoming User To Artscape -->
+            <h1>Artscape</h1>
+            <br>
+            <p><i>"Your art journey begins here..."</i></p>
+            <br>
+        </div>
+    </div>
+    <!-- Enter Gallery Button -->
+    <div class="container">
+        <a href="gallery_view" class="enter_button position_enter_button">Enter Gallery</a>
+    </div>
+
+
+    <!-- Login & Signup Buttons
+    <div class="container">
+        <div class="row position_user_button" style="margin-top: 40px">
+            <div class="col-sm-6">
+                <ul>
+                    <li class="col-sm-6"><a href="/login" class="btn form-control btn-success">Login</a></li>
+                    <li class="col-sm-6"><a href="/register" class="btn form-control btn-primary">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    -->
+
+
+
+    <!-- Info Button Triggers About Artscape Popup-->
+    <div class="container">
+    <i class="fa fa-info-circle info_button position_info_button" data-toggle="modal" data-target="#aboutArtscape"></i>
+    </div>
+
+    <!-- About Artscape Popup-->
+    <div class="modal fade" id="aboutArtscape" tabindex="-1" role="dialog" aria-labelledby="aboutArtscapeLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal_border">
+          <h3 class="modal-title" id="myModalLabel">About Artscape</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p>Artscape's mission is to bring you a personalized art gallery experience through the comfort of your screen.
+          Wherever your creativity may lead you, remember that "your art journey begins here" with Artscape.
+          <br>
+          <br>
+          Created By: Elizabeth Eyeson, Kevin Busch, Sophie Ciulla, Timothy Vaught, Ziqi Zhao, Fengwei Zhang</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

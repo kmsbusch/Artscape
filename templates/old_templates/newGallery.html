@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.selected {
+    border: 4px solid #000000;
+}
+</style>
+</head>
+<body>
+    <form id="image_choice" name="image_form" action=/mosaic_view method="POST">
+        <table id="gallery" name="gallery">
+            <tr>
+                <td><img class='galImages' src='/static/image1.jpg' width="100" height="100"/></td>
+                <td><img class='galImages' src='/static/image2.jpg' width="100" height="100"/></td>
+            </tr>
+            <tr>
+                <td><img class='galImages' src='/static/image3.jpg' width="100" height="100"/></td>
+                <td><img class='galImages' src='/static/image4.jpg' width="100" height="100"/></td>
+            </tr>
+
+
+        </table>
+
+        <input hidden type="text" name="imageNo">
+
+        <div class="form_button">
+            <input value="Submit" type="submit">
+        </div>
+    </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $('img.galImages').click(function() {
+        if($(this).hasClass('selected'))
+        {
+            $(this).removeClass('selected');
+            $("input:text").val("");
+        }
+        else {
+            $(this).addClass('selected');
+            $("input:text").val( $(this).attr('src') );
+        }
+    });
+});
+</script>
+</body>
+</html>
+

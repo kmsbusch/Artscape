@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/hmte.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="/static/register.js"> </script>
+  <title>Home Page</title>
+  </head>
+
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center position_text">
+      <h1>Artscape</h1>
+      <br>
+      <p><i>"Your art journey begins here..."</i></p>
+    </div>
+  <!--/div-->
+  <!-- Text Welcoming User To Artscape -->
+  <!--div class="container"-->
+    <div class="row">
+      <div class="column">
+      </div>
+      <div class="login-form">
+        <form enctype="multipart/form-data" action=/login method="POST">
+          <div class="txtb">
+            <!--input type="text"-->
+            <input type="text" name="uname">
+            <span data-placeholder="Username"></span>
+          </div>
+          <div class="txtb">
+            <!--input type="password"-->
+            <input type="password" name="passw">
+            <span data-placeholder="Password"></span>
+          </div>
+          <input type="submit" class="logbtn" value="Login">
+          <div class="bottom-text">
+            Don't Have an Account? <a href="#register" data-toggle="modal" onclick="openModal()">Sign Up Here</a>
+          </div>
+        </form>
+      </div>
+      <div class="column">
+      </div>
+    </div>
+  </div>
+<!--Sign Up Modal-->
+<div class="modal fade" id="register">
+  <div class="modal-dialog modal-login">
+  <div class="modal-content">
+    <div class="modal-header modal_border">
+      <h4 class="modal-title">Register a New Account</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+          <input id="user" type="text" class="form-control" name="Username" placeholder="User Name"
+            required="required">
+        </div>
+        <div class="form-group">
+          <input id="psw" type="password" class="form-control" name="password" placeholder="Password"
+            required="required">
+        </div>
+        <div class="form-group">
+          <input id="cpsw" type="password" class="form-control" name="confirm password"
+            placeholder="Confirm Password" required="required">
+        </div>
+        <div class="form-group">
+          <button id="my_submit_button" class="logbtn disabled"
+            >Sign Up</button>
+        </div>
+      </div>
+      <div class="modal-footer modal_border">
+        <div id="message" style="display:block">
+          <h6>Password Must Contain The Following:</h6>
+          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+          <p id="number" class="invalid">A <b>number</b></p>
+          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+          <p id="match" class="invalid">Password and Confirm Password Match</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Info Button Triggers About Artscape Modal -->
+  <div class="container">
+    <i class="fa fa-info-circle info_btn position_info_btn" data-toggle="modal" data-target="#about"></i>
+  </div>
+
+  <!-- About Artscape Modal -->
+  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal_border">
+          <h3 class="modal-title" id="myModalLabel">About Artscape</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p>Artscape's mission is to bring you a personalized art gallery experience through the comfort of your screen.
+          Wherever your creativity may lead you, remember that "your art journey begins here" with Artscape.
+          <br>
+          <br>
+          Created By: Elizabeth Eyeson, Kevin Busch, Sophie Ciulla, Timothy Vaught, Ziqi Zhao, Fengwei Zhang</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+
+        $('button.logbtn').on("click",function (){
+            user = document.getElementById("user").value;
+            pass = document.getElementById("psw").value;
+            $.ajax({
+                  type: "POST",
+                  contentType: "application/json; charset=utf-8",
+                  url: "/registration",
+                  data: JSON.stringify({userName: user, pass: pass}),
+                  dataType: "json"
+                });
+            $('#register').modal('hide');
+        });
+
+  </script>
+</body>
+</html>

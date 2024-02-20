@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<!-- Make a button that you can click to hide the mosaic overlay. lets the user compare the mosaic with the original image -->
+<head>
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
+	<style>
+	    html{
+          background: url("{{ data['og_img'] }}") no-repeat center center fixed;
+          background-size: cover;
+        }
+		.yellow {
+			font-size: 25px;
+		}
+		/*.galImages {
+			position: relative;
+            left: 400px;
+		}*/
+		.jumbotron {
+			background-color: transparent !important;
+			text-align: center;
+			margin-top: -50px;
+			font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+		}
+        .aligncenter {
+            position: fixed;
+            top: 0%;
+            left: 10%;
+        }
+        .verticalhorizontal {
+            display: table-cell;
+            height: 300px;
+            text-align: center;
+            width: 300px;
+            vertical-align: middle;
+        }
+        .custom-file-download {
+            text-align: center;
+            position: relative;
+			bottom: 0%
+			left: 0%;
+            display: block;
+            font-size: 23px;
+            width: 210px;
+            height: 48.65px;
+            border: none;
+            background: linear-gradient(120deg,#ff5050,#ff0066,#ff6600);
+            background-size: 200%;
+            color: #000000;
+            padding: 6px 12px;
+            outline: none;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .custom-file-download:hover{
+          background-position: right;
+        }
+        .custom-file-submit {
+            text-align: center;
+            position: relative;
+			bottom: 0%;
+			left: 5%;
+            display: block;
+            font-size: 23px;
+            width: 210px;
+            height: 48.65px;
+            border: none;
+            background: linear-gradient(120deg,#ff5050,#ff0066,#ff6600);
+            background-size: 200%;
+            color: #000000;
+            padding: 6px 12px;
+            outline: none;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .custom-file-submit:hover{
+          background-position: right;
+        }
+        .custom-mosaic-hide {
+            text-align: center;
+            position: relative;
+			bottom: 95%;
+			left: 0%;
+            display: block;
+            font-size: 23px;
+            width: 210px;
+            height: 48.65px;
+            border: none;
+            background: linear-gradient(120deg,#ff5050,#ff0066,#ff6600);
+            background-size: 200%;
+            color: #000000;
+            padding: 6px 12px;
+            outline: none;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .custom-mosaic-hide:hover{
+          background-position: right;
+        }
+        * {box-sizing: border-box;}
+        .img-zoom-container {
+          position: relative;
+          left: 17%;
+        }
+
+        .img-zoom-lens {
+          position: absolute;
+          border: 4px solid #000000;
+          /*set the size of the lens:*/
+          /*width and height 125 og*/
+          width: 100px;
+          height: 100px;
+        }
+
+        .img-zoom-result {
+          position: fixed;
+          bottom: 0%;
+          left: 0%;
+          border: 1px solid #030303;
+          /*set the size of the result div:*/
+          /*width and height 300 og*/
+          width: 225px;
+          height: 225px;
+        }
+        input[type="submit"] {
+            display: none;
+        }
+        .button-27 {
+          appearance: none;
+          background-color: #000000;
+          border: 2px solid #1A1A1A;
+          border-radius: 15px;
+          box-sizing: border-box;
+          color: #FFFFFF;
+          cursor: pointer;
+          display: inline-block;
+          font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 16px;
+          font-weight: 600;
+          line-height: normal;
+          margin: 0;
+          min-height: 60px;
+          min-width: 0;
+          width: 210px;
+          outline: none;
+          padding: 16px 24px;
+          text-align: center;
+          text-decoration: none;
+          transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+          /*user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          width: 100%;
+          will-change: transform;*/
+        }
+
+        .button-27:disabled {
+          pointer-events: none;
+        }
+
+        .button-27:hover {
+          box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+          transform: translateY(-2px);
+        }
+
+        .button-27:active {
+          box-shadow: none;
+          transform: translateY(0);
+        }
+        .dl-btn-pos {
+          position: fixed;
+          right: 0%;
+          bottom: 0%;
+        }
+        .submit-btn-pos {
+          position: fixed;
+          left: 41%;
+          bottom: 0%;
+        }
+	</style>
+</head>
+
+<body>
+    <!--nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home Page<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href=""/gallery_view.html">Gallery View <span class="sr-only">(current)</span></a>
+            </li>
+        </div>
+      </nav-->
+
+
+    <a id="mosaic-hide-btn" class="button-27" href="javascript:showhide('grid_choice')">
+    		Click to show/hide.
+	</a>
+
+    <!--div class="jumbotron text-center position_text">
+			<h2>Image Chosen</h2>
+	</div-->
+
+
+	<form id="grid_choice" class="aligncenter" name="grid_form" action=/mosaic_view2 method="POST" style="display:block;">
+		<br><br>
+		<!--maybe try writing js script or something to take in width and height and set them to
+		variables and then divide them by 70 to get grid size
+		then native image size from mosaic could be used, which might allow for higher res images in the grid...
+		ALSO, CHANGING RES SIZE FKS UP THE IMAGE SELECTION
+		-->
+
+
+        <!--a class="magnifier-thumb-wrapper" href="#"-->
+	    <!--p class="aligncenter"-->
+        <div class="img-zoom-container">
+		    <img class='galImages' id ="myimage" src="{{ data['mosaic'] }}"  width="1166.6625" height="875" usemap="#grid" /> <!-- width="933.33" height="700" width="874.996" height="656.25"-->
+		</div>
+		<map name="grid">
+			{% set ns1 = namespace(top = -12.5) %}
+			{% set ns2 = namespace(bottom = 0) %}
+			{% set ns3 = namespace(left = -16.666625) %}
+			{% set ns4 = namespace(right = 0) %}
+			{% set ns5 = namespace(imageNum = 0) %}
+			{% for x in range(70) %}
+			{% set ns1.top = ns1.top + 12.5 %}
+			{% set ns2.bottom = ns2.bottom + 12.5 %}
+			{% set ns3.left = -16.666625 %}
+			{% set ns4.right = 0 %}
+			{% for y in range(70) %}
+			{% set ns5.imageNum = x*70+y %}
+			{% set ns3.left = ns3.left + 16.666625 %}
+			{% set ns4.right = ns4.right + 16.666625 %}
+			<area shape="rect" class="yellow" coords="{{ ns3.left }},{{ ns1.top }},{{ ns4.right }},{{ ns2.bottom }}"
+				alt="image {{ns5.imageNum}}" href="#">
+			{% endfor %}
+			{% endfor %}
+		</map>
+        <div id="myresult" class="img-zoom-result"></div>
+
+        <label for="submitbutton" class=" button-27 submit-btn-pos"> <!-- custom-file-submit -->
+            Submit
+        </label>
+
+		<a id="downloadbtn" class="button-27 dl-btn-pos" href="{{ data['mosaic'] }}" download="Mosaic Photo">Download</a> <!--  custom-file-download -->
+
+
+		<input hidden type="text" name="altimageNum" id="clickedimage"><!-- image # goes in here as text and is what is actually sent to the flask, button below is what initiates send -->
+		<div class="form_button">
+			<input value="Submit" type="submit" id="submitbutton">
+		</div>
+
+            <!--label for="downloadbtn" class="custom-file-download">
+                Download
+            </label-->
+
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.yellow').click(function () {
+				if ($(this).hasClass('selected')) {
+					$(this).removeClass('selected');
+					$("input:text").val("");
+				}
+				else {
+					$(this).addClass('selected');
+
+					$("input:text").val($(this).attr('alt'));
+				}
+			});
+		});
+    </script>
+    <script>
+		function imageZoom(imgID, resultID) {
+          var img, lens, result, cx, cy;
+          img = document.getElementById(imgID);
+          result = document.getElementById(resultID);
+          /* Create lens: */
+          lens = document.createElement("DIV");
+          lens.setAttribute("class", "img-zoom-lens");
+          /* Insert lens: */
+          img.parentElement.insertBefore(lens, img);
+          /* Calculate the ratio between result DIV and lens: */
+          cx = result.offsetWidth / lens.offsetWidth;
+          cy = result.offsetHeight / lens.offsetHeight;
+          /* Set background properties for the result DIV */
+          result.style.backgroundImage = "url('" + img.src + "')";
+          result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+          /* Execute a function when someone moves the cursor over the image, or the lens: */
+          lens.addEventListener("mousemove", moveLens);
+          img.addEventListener("mousemove", moveLens);
+          /* And also for touch screens: */
+          lens.addEventListener("touchmove", moveLens);
+          img.addEventListener("touchmove", moveLens);
+          function moveLens(e) {
+            var pos, x, y;
+            /* Prevent any other actions that may occur when moving over the image */
+            //e.preventDefault();
+            /* Get the cursor's x and y positions: */
+            pos = getCursorPos(e);
+            /* Calculate the position of the lens: */
+            x = pos.x - (lens.offsetWidth / 2);
+            y = pos.y - (lens.offsetHeight / 2);
+            /* Prevent the lens from being positioned outside the image: */
+            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+            if (x < 0) {x = 0;}
+            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+            if (y < 0) {y = 0;}
+            /* Set the position of the lens: */
+            lens.style.left = x + "px";
+            lens.style.top = y + "px";
+            /* Display what the lens "sees": */
+            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+          }
+          function getCursorPos(e) {
+            var a, x = 0, y = 0;
+            e = e || window.event;
+            /* Get the x and y positions of the image: */
+            a = img.getBoundingClientRect();
+            /* Calculate the cursor's x and y coordinates, relative to the image: */
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /* Consider any page scrolling: */
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x : x, y : y};
+          }
+        }
+        function showhide(id) {
+           	var e = document.getElementById(id);
+           	e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        }
+        imageZoom("myimage", "myresult");
+	</script>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
